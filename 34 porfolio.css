@@ -1,0 +1,458 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--body);
+  position: relative;
+
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-style: oblique;
+}
+header h1 {
+  margin: 32px;
+}
+header nav {
+  border: 1px solid white;
+  padding: 8px;
+  background-color: rgba(12, 12, 12, 0.5);
+  border-radius: 4em;
+  display: flex;
+  margin: 2em;
+  list-style: none;
+  transition: 1s ease background;
+}
+
+header a {
+  margin: 16px;
+  text-decoration: none;
+  color: rgb(255, 253, 253);
+  font-weight: 600;
+  font-size: 1.2rem;
+  position: relative;
+}
+header a:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+  text-decoration-thickness: 5px;
+  text-decoration-color: orange;
+}
+header li:hover {
+  transform: scale(1.2);
+}
+main {
+  margin-top: 10vh;
+}
+main .fullDetail {
+  position: relative;
+  transform: scale(1.5) translate(25%, 25%);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+  animation: var(--afull);
+}
+@keyframes opac {
+  from {
+    left: -100%;
+    opacity: 0;
+  }
+  to {
+    left: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes opc {
+  from {
+    left: -100%;
+    opacity: 0;
+  }
+  to {
+    left: 0px;
+    opacity: 1;
+  }
+}
+@keyframes opa {
+  from {
+    left: -100%;
+    opacity: 0;
+  }
+  to {
+    left: 0px;
+    opacity: 1;
+  }
+}
+
+main .name {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.name h1,
+h2 {
+  font-weight: 300;
+  color: rgb(247, 248, 245);
+}
+.name #name {
+  color: rgb(254, 123, 8);
+}
+
+.pascon {
+  position: absolute;
+  z-index: 13434;
+  width: fit-content;
+  height: 20px;
+}
+.pascon::before {
+  content: " ";
+  inset: 0;
+}
+.passion {
+  font-size: 4em;
+  font-weight: 400;
+  color: white;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: cursor 0.4s step-end infinite alternate;
+  border-right: 5px solid white;
+}
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+.prob {
+  margin-top: 75px;
+}
+
+.fullDetail p {
+  color: white;
+  margin-bottom: 24px;
+}
+.fullDetail img {
+  height: 40px;
+  background-color: white;
+  border-radius: 20%;
+  position: relative;
+  top: 10px;
+  margin-left: 8px;
+}
+.fullDetail button {
+  font-size: 1.2em;
+  color: white;
+  background-color: rgb(251, 74, 4);
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 2em;
+  cursor: pointer;
+}
+.fullDetail button:hover {
+  background-color: orange;
+}
+#abimage1 {
+  position: absolute;
+  height: 90px;
+  inset: auto 20vh 77vh auto;
+}
+#abimage2 {
+  position: absolute;
+  height: 90px;
+  inset: auto 65vh 70vh auto;
+}
+#abimage3 {
+  position: absolute;
+  height: 90px;
+  inset: auto 78vh 50vh auto;
+}
+#abimage4 {
+  position: absolute;
+  height: 80px;
+  inset: auto 87vh 38vh auto;
+}
+#abimage5 {
+  position: absolute;
+  height: 90px;
+  inset: auto 26vh 86vh auto;
+}
+#abimage6 {
+  position: absolute;
+  height: 80px;
+  inset: auto 78vh 64vh auto;
+}
+.phowork {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.photo {
+  transition: 1s ease background;
+  border: 2px solid white;
+  background: var(--bgphoto);
+  padding: 400px;
+  inset: auto -154px -350px auto;
+  border-radius: 50%;
+  margin-right: 20px;
+  position: absolute;
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.photo::after,
+.photo::before {
+  position: absolute;
+  content: "";
+  transition: 1s ease background;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  border-radius: inherit;
+  padding: 4rem;
+  background: conic-gradient(from var(--angle), transparent, var(--photo));
+  transform: translate(-50%, -50%);
+  border: 2px solid white;
+  z-index: -3;
+  animation: 3s spin linear infinite;
+}
+.photo::before {
+  filter: blur(5rem);
+  opacity: 0.5;
+}
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+#myimage {
+  position: absolute;
+  bottom: 50px;
+  z-index: 4;
+  right: 30px;
+  height: 600px;
+  animation: var(--aphoto);
+}
+
+@keyframes out {
+  from {
+    bottom: -80%;
+  }
+  to {
+    bottom: 0%;
+  }
+}
+
+@keyframes ot {
+  from {
+    bottom: -80%;
+  }
+  to {
+    bottom: 0%;
+  }
+}
+@keyframes ou {
+  from {
+    bottom: -80%;
+  }
+  to {
+    bottom: 0%;
+  }
+}
+:root {
+  --body: radial-gradient(circle at 100% 100%, rgb(212, 143, 79), black);
+  --photo: rgb(107, 51, 7), rgb(204, 115, 42), rgb(102, 59, 5);
+  --bgphoto: radial-gradient(at 0% 100%, orange, black);
+  --btn: rgb(232, 160, 16);
+  --afull: 3s opac ease both;
+  --aphoto: 3s out 1s ease both;
+  --oimg2: 3s 2s oimg ease both;
+  --oimg1: 3s 0.1s oimg1 ease both;
+}
+.theme1 {
+  --body: radial-gradient(circle at 100% 100%, rgb(212, 143, 79), black);
+  --photo: rgb(107, 51, 7), rgb(204, 115, 42), rgb(102, 59, 5);
+  --bgphoto: radial-gradient(at 0% 100%, orange, black);
+  --btn: rgb(12, 198, 245);
+  --aphoto: 3s ou 1s ease both;
+  --afull: 3s opc ease both;
+  --oimg2: 3s 2s oim ease both;
+  --oimg1: 3s 0.1s oim1 ease both;
+}
+.theme2 {
+  --body: radial-gradient(circle at 100% 100%, rgb(20, 208, 237), black);
+  --photo: rgb(7, 107, 105), rgb(19, 224, 255), rgb(5, 78, 102);
+  --bgphoto: radial-gradient(at 0% 100%, rgb(12, 198, 240), black);
+  --btn: rgb(243, 219, 5);
+  --aphoto: 3s ot 1s ease both;
+  --afull: 3s opa ease both;
+  --oimg2: 3s 2s oig ease both;
+  --oimg1: 3s 0.1s oig1 ease both;
+}
+.theme {
+  transition: 1s ease background;
+  font-size: 1.2em;
+  color: rgb(22, 13, 13);
+  background-color: var(--btn);
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 2em;
+  cursor: pointer;
+}
+.work {
+  position: absolute;
+  inset: auto auto 0% 10%;
+  animation: 3s ease work both;
+  height: 38vh;
+  width: 70vh;
+}
+@keyframes work {
+  from {
+    bottom: -100%;
+  }
+  to {
+    bottom: 0%;
+  }
+}
+.slide {
+  position: absolute;
+
+  height: 38vh;
+  width: 70vh;
+  overflow: scroll;
+}
+.slide img {
+  margin-bottom: 8px;
+  height: 38vh;
+}
+.work::after,
+.work::before {
+  position: absolute;
+  content: "";
+
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  padding: 5px;
+  background: conic-gradient(
+    from var(--angle),
+    blue,
+    green,
+    red,
+    rgb(240, 9, 217),
+    blue
+  );
+  transform: translate(-50%, -50%);
+  border: 2px solid white;
+  z-index: -1;
+  animation: 3s spin linear infinite;
+}
+.work::before {
+  filter: blur(5rem);
+  opacity: 0.5;
+}
+#mw {
+  position: absolute;
+  bottom: 20%;
+  left: 3%;
+  animation: 2s mwl linear infinite;
+}
+@keyframes mwl {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.2;
+  }
+}
+.outimg1 {
+  position: absolute;
+  inset: 20% auto auto -8%;
+  z-index: -2222;
+  height: 400px;
+  rotate: 30deg;
+  animation: var(--oimg1);
+}
+@keyframes oimg1 {
+  from {
+    left: -100%;
+  }
+  to {
+    left: -8%;
+  }
+}
+@keyframes oig1 {
+  from {
+    left: -100%;
+  }
+  to {
+    left: -8%;
+  }
+}
+@keyframes oim1 {
+  from {
+    left: -100%;
+  }
+  to {
+    left: -8%;
+  }
+}
+
+.outimg2 {
+  position: absolute;
+  height: 300px;
+  inset: 8% -3% auto auto;
+
+  z-index: -2222;
+  rotate: -30deg;
+  animation: var(--oimg2);
+}
+@keyframes oimg {
+  from {
+    transform: translate(-200%);
+    right: -100%;
+  }
+  to {
+    transform: translate(0%);
+    right: -3%;
+  }
+}
+@keyframes oim {
+  from {
+    transform: translate(-200%);
+    right: -100%;
+  }
+  to {
+    transform: translate(0%);
+    right: -3%;
+  }
+}
+@keyframes oig {
+  from {
+    transform: translate(-200%);
+    right: -100%;
+  }
+  to {
+    transform: translate(0%);
+    right: -3%;
+  }
+}
