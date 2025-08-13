@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLG.Portfolio</title>
+    <link rel="stylesheet" href="css/34 porfolio.css" />
+  </head>
+  <body>
+    <header>
+      <h1>MY PORTFOLIO</h1>
+      <button class="theme">Theme</button>
+      <nav>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Skill's</a></li>
+        <li><a href="#">ContactUs</a></li>
+      </nav>
+    </header>
+    <main>
+      <div class="fullDetail">
+        <div class="name">
+          <h1>Hi,</h1>
+          <h2>
+            I am
+            <h1 id="name">Chamanlal</h1>
+          </h2>
+        </div>
+        <div class="pascon">
+          <h1 class="passion"></h1>
+        </div>
+        <div class="prob">
+          <p>Current pursuing B-Tech in Computer scinence &Engg</p>
+          <button>Contact Us</button>
+          <a href="https://www.linkedin.com/company/linkedin" target="_blank"
+            ><img src="image/linkedin.jpg" alt=""
+          /></a>
+          <a href="#"><img src="image/mail.jpg" alt="" /></a>
+          <a href="https://github.com/Chamanlal20" target="_blank"
+            ><img
+              src="https://cdn-icons-png.flaticon.com/512/25/25657.png"
+              alt=""
+          /></a>
+          <a href="#" target="_blank"
+            ><img
+              src="   https://cdn-icons-png.flaticon.com/512/732/732223.png "
+              alt=""
+          /></a>
+        </div>
+      </div>
+
+      <div class="photo">
+        <img src="image/htmlicon.png" alt="" id="abimage1" />
+        <img src="image/cssicon.png" alt="" id="abimage2" />
+        <img src="image/jsicon.png" alt="" id="abimage3" />
+        <img
+          src="https://cdn3d.iconscout.com/3d/free/thumb/free-python-6432342-5326385.png"
+          alt=""
+          id="abimage4"
+        />
+        <img
+          src="https://cdn3d.iconscout.com/3d/free/thumb/free-c-language-logo-6563484-5453029.png"
+          alt=""
+          id="abimage5"
+        />
+        <img
+          src="https://cdn3d.iconscout.com/3d/free/thumb/free-s-9294872-7578015.png"
+          alt=""
+          id="abimage6"
+        />
+      </div>
+      <img src="image/chaman3D.png" alt="" id="myimage" />
+      <h2 id="mw">My Work👉</h2>
+      <div class="work">
+        <div class="slide">
+          <a href="#"><img src="image/portfolio.png" alt="" /></a>
+          <a href="https://chamanlal20.github.io/Rojgar.clg/"
+            ><img src="image/webrojgar.png" alt="" /></a
+          ><a href="https://chamanlal20.github.io/BookReader.clg/"
+            ><img src="image/bookreader.png" alt="" /></a
+          ><a href="https://chamanlal20.github.io/lms.clg/"
+            ><img src="image/lns.png" alt=""
+          /></a>
+        </div>
+      </div>
+      <img src="image/metaliciconcss.png" alt="" class="outimg1" /><img
+        src="https://cdn3d.iconscout.com/3d/premium/thumb/c-letter-9906425-8082768.png"
+        alt=""
+        class="outimg2"
+      />
+    </main>
+    <script>
+      let tech = [
+        "Web Developmer.",
+        "Athlete.",
+        "Software Developer.",
+        "Student.",
+      ];
+      let passion = document.querySelector(".passion");
+      let next = 0;
+
+      let index = 0;
+      let reverse = false;
+      var innerword = setInterval(() => {
+        let word = tech[next];
+        if (!reverse) {
+          passion.innerHTML = passion.innerHTML + word[index];
+          index++;
+        } else {
+          passion.innerHTML = passion.innerHTML.slice(
+            0,
+            passion.innerHTML.length - 1
+          );
+        }
+        if (passion.innerHTML == 0 && reverse) {
+          reverse = false;
+          next = (next + 1) % tech.length;
+          index = 0;
+        }
+        if (index === word.length) {
+          reverse = true;
+        }
+      }, 300);
+
+      const theme = ["theme1", "theme2"];
+
+      var current = 0;
+      const themebtn = document.querySelector(".theme");
+      themebtn.addEventListener("click", () => {
+        document.body.classList.remove(theme[current]);
+
+        current = current + 1;
+        current = current % theme.length;
+
+        document.body.classList.add(theme[current]);
+      });
+
+      const imageContainer = document.querySelector(".slide");
+      const scrollSpeed = 1;
+      const scrollInterval = 60;
+
+      let scrollDirection = 1;
+
+      function autoScroll() {
+        imageContainer.scrollTop += scrollSpeed * scrollDirection;
+
+        if (
+          imageContainer.scrollTop + imageContainer.clientHeight >=
+            imageContainer.scrollHeight &&
+          scrollDirection === 1
+        ) {
+          scrollDirection = -1;
+        } else if (imageContainer.scrollTop <= 0 && scrollDirection === -1) {
+          scrollDirection = 1;
+        }
+      }
+
+      let scrollTimer = setInterval(autoScroll, scrollInterval);
+
+      imageContainer.addEventListener("mouseover", () => {
+        clearInterval(scrollTimer);
+      });
+
+      imageContainer.addEventListener("mouseout", () => {
+        scrollTimer = setInterval(autoScroll, scrollInterval);
+      });
+    </script>
+  </body>
+</html>
